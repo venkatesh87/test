@@ -196,6 +196,20 @@
             ]
         },
         {
+            "id": "6",
+            "text": "Widgets",
+            "url": "/widgets/banners",
+            "current": "shop",
+            "extraClass": "menu-item-has-children dropdown",
+            "subClass": "sub-menu",
+            "subMenu": [
+                {
+                    "text": "Banners",
+                    "url": "/widgets/banners"
+                }
+            ]
+        },
+        {
             "text": "Contact",
             "url": "/pages/contact-us"
         }

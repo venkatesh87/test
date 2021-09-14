@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ContainerHomeDefault from '~/components/layouts/ContainerHomeDefault';
 import Subscribe from '~/components/shared/sections/Subscribe';
 import HomeDefaultCollection from '~/components/partials/homepages/home-default/HomeDefaultCollection';
@@ -8,20 +8,30 @@ import HomeDefaultDealOfDay from '~/components/partials/homepages/home-default/H
 import HomeDefaultNewArrival from '~/components/partials/homepages/home-default/HomeDefaultNewArrival';
 import HomeDefaultBanner from '~/components/partials/homepages/home-default/HomeDefaultBanner';
 import HomeDefaultTopSellers from '~/components/partials/homepages/home-default/HomeDefaultTopSellers';
+import _ from 'lodash';
 
 const HomeDefaultPage = () => {
-    return (
-        <ContainerHomeDefault title="Minimalist eCommerce React Template">
-            <HomeDefaultBanner />
-            <HomeDefaultCollection />
+  const [templates, setTemplates] = useState([]);
+  useEffect(() => {
+    fetch('https://service.lightbooks-dev.io/thehouseoffa/data/settings')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('data.templates[0].data:', data.templates[0].data);
+        setTemplates(data.templates[0].data);
+      });
+  }, []);
+  return (
+    <ContainerHomeDefault title="Minimalist eCommerce React Template">
+      {!_.isEmpty(templates) && <HomeDefaultBanner templates={templates} />}
+      {/* <HomeDefaultCollection />
             <HomeDefaultTopSellers collectionSlug="home-default-top-seller" />
             <HomeDefaultNewArrival collectionSlug="new-arrival" />
             <HomeDefaultDealOfDay />
             <HomeBlog />
             <Subscribe />
-            <InstagramImages />
-        </ContainerHomeDefault>
-    );
+            <InstagramImages /> */}
+    </ContainerHomeDefault>
+  );
 };
 
 export default HomeDefaultPage;

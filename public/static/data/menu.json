@@ -206,6 +206,10 @@
                 {
                     "text": "Banners",
                     "url": "/widgets/banners"
+                },
+                {
+                    "text": "Typography",
+                    "url": "/widgets/typography"
                 }
             ]
         },

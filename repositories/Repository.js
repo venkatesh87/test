@@ -1,11 +1,12 @@
 import axios from 'axios';
-const baseDomain = 'https://supro.noudeveloper.com';
+const baseDomain = process.env.REACT_APP_API_BASE_URL;
 export const wp = 'https://wp.nouhtml5.com';
 export const baseUrlProduct = 'https://supro.noudeveloper.com';
 
 export const customHeaders = {
     Accept: 'application/json',
 };
+
 
 export const baseUrl = `${baseDomain}`;
 

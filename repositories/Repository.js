@@ -2,6 +2,7 @@ import axios from 'axios';
 const baseDomain = 'https://supro.noudeveloper.com';
 export const wp = 'https://wp.nouhtml5.com';
 export const baseUrlProduct = 'https://supro.noudeveloper.com';
+export const apiUrl = 'http://localhost:8091/17';
 
 export const customHeaders = {
     Accept: 'application/json',

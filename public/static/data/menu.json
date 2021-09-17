@@ -25,6 +25,10 @@
                             "url": "/home/home-moderm"
                         },
                         {
+                            "text": "Home Stylish",
+                            "url": "/home/home-stylish"
+                        },
+                        {
                             "text": "Home Fullwidth",
                             "url": "/home/home-fullwidth"
                         }

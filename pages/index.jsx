@@ -1,27 +1,25 @@
 import React from 'react';
-import ContainerHomeDefault from '~/components/layouts/ContainerHomeDefault';
-import Subscribe from '~/components/shared/sections/Subscribe';
-import HomeDefaultCollection from '~/components/partials/homepages/home-default/HomeDefaultCollection';
-import InstagramImages from '~/components/shared/sections/InstagramImages';
+import ContainerHomeClassic from '~/components/layouts/ContainerHomeClassic';
+import SiteFeatures from '~/components/shared/sections/SiteFeatures';
 import HomeBlog from '~/components/shared/sections/HomeBlog';
-import HomeDefaultDealOfDay from '~/components/partials/homepages/home-default/HomeDefaultDealOfDay';
-import HomeDefaultNewArrival from '~/components/partials/homepages/home-default/HomeDefaultNewArrival';
-import HomeDefaultBanner from '~/components/partials/homepages/home-default/HomeDefaultBanner';
-import HomeDefaultTopSellers from '~/components/partials/homepages/home-default/HomeDefaultTopSellers';
+import Subscribe from '~/components/shared/sections/Subscribe';
+import HomeClassicPromotions from '~/components/partials/homepages/home-classic/HomeClassicPromotions';
+import HomeClassicProducts from '~/components/partials/homepages/home-classic/HomeClassicProducts';
+import HomeClassicCategories from '~/components/partials/homepages/home-classic/HomeClassicCategories';
+import HomeClassicBanners from '~/components/partials/homepages/home-classic/HomeClassicBanners';
 
-const HomeDefaultPage = () => {
+const Home = () => {
     return (
-        <ContainerHomeDefault title="Minimalist eCommerce React Template">
-            <HomeDefaultBanner />
-            <HomeDefaultCollection />
-            <HomeDefaultTopSellers collectionSlug="home-default-top-seller" />
-            <HomeDefaultNewArrival collectionSlug="new-arrival" />
-            <HomeDefaultDealOfDay />
+        <ContainerHomeClassic title="Home Classic">
+            <HomeClassicBanners />
+            <SiteFeatures />
+            <HomeClassicCategories />
+            <HomeClassicProducts />
+            <HomeClassicPromotions />
             <HomeBlog />
             <Subscribe />
-            <InstagramImages />
-        </ContainerHomeDefault>
+        </ContainerHomeClassic>
     );
 };
 
-export default HomeDefaultPage;
+export default Home;

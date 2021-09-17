@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BackTop } from 'antd';
 import ModuleCustomHead from '~/components/layouts/modules/ModuleCustomHead';
 import HeaderMobile from '~/components/shared/mobiles/HeaderMobile';
@@ -11,16 +11,36 @@ import { getWishlistList } from '~/store/wishlist/action';
 import { useRouter } from 'next/router';
 import { toggleDrawer } from '~/store/app/action';
 import { Html } from 'next/document';
+import StoreRepository from '~/repositories/StoreRepository';
+import { fetchSettingSuccess } from '~/store/common/actions';
 
 const MasterLayout = ({ children }) => {
     const dispatch = useDispatch();
     const router = useRouter();
+
+    async function getStoreSettings() {
+        const settings = await StoreRepository.getStoreSettings();
+        if (settings) {
+            const {configs, templates, ...rest} = settings;
+            dispatch(
+                fetchSettingSuccess({
+                    settings: rest,
+                    configs: configs,
+                    templates: templates,
+                }),
+            );
+        } else {
+            return null;
+        }
+    }
+
     useEffect(() => {
         const handleComplete = () => {
             dispatch(toggleDrawer(false));
         };
         dispatch(getCart());
         dispatch(getWishlistList());
+        getStoreSettings();
         router.events.on('routeChangeStart', handleComplete);
         setTimeout(function () {
             document.getElementById('__next').classList.add('ps-loaded');

@@ -3,6 +3,7 @@ import Repository, {
   baseUrlProduct,
   serializeQuery
 } from './Repository';
+import _ from 'lodash';
 
 export async function getTotalRecords() {
   const reponse = await Repository.get(`${baseUrlProduct}/products/count`)
@@ -102,6 +103,32 @@ class ProductRepository {
   async getProductsByCategory(categoryId) {
     const reponse = await Repository.get(
       `${baseUrl}/thehouseoffa/products?category=${categoryId}&lang=en&page=1&per_page=16&status=publish`
+    )
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => ({error: JSON.stringify(error)}));
+    return reponse;
+  }
+
+  async getProductById(productId) {
+    const reponse = await Repository.get(
+      `${baseUrl}/thehouseoffa/products?include=${productId}&lang=en&per_page=4&status=publish`
+    )
+      .then((response) => {
+        if (!_.isEmpty(response.data)) {
+          return response.data[0];
+        } else {
+          return {};
+        }
+      })
+      .catch((error) => ({error: JSON.stringify(error)}));
+    return reponse;
+  }
+
+  async getRelatedProducts(relatedProducts) {
+    const reponse = await Repository.get(
+      `${baseUrl}/thehouseoffa/products?include=${relatedProducts}&lang=en&per_page=4&status=publish`
     )
       .then((response) => {
         return response.data;

@@ -12,7 +12,6 @@ import ModuleProductActions from '~/components/elements/products/modules/ModuleP
 
 const Product = ({product}) => {
   // Views
-  console.log(product);
   const priceView = SPGetProductPrice(product);
   const thumbnailImages = SPGetProductImage(product);
 

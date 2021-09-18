@@ -186,14 +186,13 @@ export function SPGetProductPrice(product) {
 export function SPGetProductBadges(product) {
   let view,
     items = [];
-    // TODO
-  // if (product.badge) {
-  //   items.push(product.badge);
-  // }
+  if (product.badge) {
+    items.push(product.badge);
+  }
 
-  // if (product.sale_price) {
-  items.push('sale');
-  // }
+  if (product.sale_price) {
+    items.push('sale');
+  }
   if (items.length > 0) {
     const badgeItems = items.map((item) => {
       if (item === 'sale') {
@@ -224,9 +223,18 @@ export function SPGetProductImage(product) {
     image = images[0].url;
 
     return (
-      <LazyLoad>
-        <img className="ps-product__image" src={image} alt={product.name} />
-      </LazyLoad>
+      <div className="ps-product__thumbnail-images">
+        <LazyLoad>
+          <img className="ps-product__image" src={image} alt={product.name} />
+        </LazyLoad>
+        <LazyLoad>
+          <img
+            className="ps-product__image-alt"
+            src={image}
+            alt={product.name}
+          />
+        </LazyLoad>
+      </div>
     );
   } else {
     return (

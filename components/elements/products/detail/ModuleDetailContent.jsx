@@ -3,7 +3,7 @@ import ModuleDetailDescription from '~/components/elements/products/detail/Modul
 import TableProductSize from '~/components/shared/tables/TableProductSize';
 import SubModuleDetailComment from '~/components/elements/products/detail/modules/SubModuleDetailComment';
 
-const ModuleDetailContent = () => {
+const ModuleDetailContent = ({product}) => {
     const tabItems = [
         { id: 1, text: 'description' },
         { id: 2, text: 'Addition Information' },
@@ -28,13 +28,13 @@ const ModuleDetailContent = () => {
         </li>
     ));
     if (currentTab.id === 1) {
-        tabContentView = <ModuleDetailDescription />;
+        tabContentView = <ModuleDetailDescription product={product}/>;
     }
     if (currentTab.id === 2) {
-        tabContentView = <TableProductSize />;
+        tabContentView = <TableProductSize product={product}/>;
     }
     if (currentTab.id === 3) {
-        tabContentView = <SubModuleDetailComment />;
+        tabContentView = <SubModuleDetailComment product={product}/>;
     }
 
     return (

@@ -214,6 +214,10 @@
                 {
                     "text": "Typography",
                     "url": "/widgets/typography"
+                },
+                {
+                    "text": "Slideshow",
+                    "url": "/widgets/slideshow"
                 }
             ]
         },

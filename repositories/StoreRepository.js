@@ -12,7 +12,6 @@ class StoreRepository {
         )
             .then((response) => {
                 if (response.data && !isEmpty(response.data)) {
-                    console.log('response: ', response);
                     return response.data;
                 } else {
                     return null;

@@ -156,7 +156,6 @@ export function fetchSettingSuccess({settings, configs, templates}) {
     };
     hydratedTemplates.push(data);
   });
-  console.log('hydratedTemplates: ', hydratedTemplates);
 
   return {
     type: Actions.FETCH_SETTING_SUCCESS,

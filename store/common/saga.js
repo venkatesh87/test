@@ -2,7 +2,7 @@ import {put, call, takeEvery} from 'redux-saga/effects';
 
 import * as Actions from './constants';
 
-import {fetchCountries, fetchPaymentGateways} from './service';
+import {fetchCountries, fetchPaymentGateways} from '~/repositories/CommonRepository';
 // import {fetchShippingZoneMethod} from '../cart/service';
 
 /**

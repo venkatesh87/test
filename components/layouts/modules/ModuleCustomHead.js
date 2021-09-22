@@ -6,8 +6,9 @@ const ModuleCustomHead = () => (
         <title>Aasaan Shop</title>
         <link rel="shortcut icon" href="/static/img/favi.png" />
         <meta charSet="utf-8" />
+        <meta name="robots" content="index, follow"/>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
         <meta
             name="description"
             content="Create an online store for free"

@@ -1,9 +1,3 @@
-/*
- * React template helpers
- * Author: Nouthemes
- * Developed: diaryforlife
- * */
-
 import React from 'react';
 import { baseUrlProduct } from '~/repositories/Repository';
 import LazyLoad from 'react-lazyload';

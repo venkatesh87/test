@@ -1,8 +1,3 @@
-/*
- * React template helpers
- * Author: Nouthemes
- * Developed: diaryforlife
- * */
 import React from 'react';
 import CollectionRepository from '~/repositories/CollectionRepository';
 import ProductRepository from '~/repositories/ProductRepository';

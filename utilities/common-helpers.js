@@ -1,9 +1,3 @@
-/*
- * React template helpers
- * Author: Nouthemes
- * Developed: diaryforlife
- * */
-
 export const stickyHeader = () => {
     let number =
         window.pageXOffset ||

@@ -16,7 +16,6 @@ const HomeDefaultPage = () => {
     fetch('https://service.lightbooks-dev.io/thehouseoffa/data/settings')
       .then((response) => response.json())
       .then((data) => {
-        console.log('data.templates[0].data:', data.templates[0].data);
         setTemplates(data.templates[0].data);
       });
   }, []);

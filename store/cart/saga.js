@@ -12,6 +12,10 @@ import {
     getCartItemsFromCookies,
     increaseQtyCartItemHelper,
     removeCartItemHelper,
+    addItemToCart,
+    updateCartItemQty,
+    getCartItemsByCartKey
+    
 } from '~/utilities/ecomerce-helpers';
 
 const modalSuccess = (type) => {
@@ -31,7 +35,7 @@ const modalWarning = (type) => {
 
 function* getCartSaga() {
     try {
-        const cartItems = getCartItemsFromCookies();
+        const cartItems = getCartItemsByCartKey();
         yield put(updateCartSuccess(cartItems));
     } catch (err) {
         yield put(getCartError(err));
@@ -41,7 +45,7 @@ function* getCartSaga() {
 function* addItemSaga(payload) {
     try {
         const { product } = payload;
-        const cartItems = addItemToCartHelper(product);
+        const cartItems = addItemToCart(product);
         yield put(updateCartSuccess(cartItems));
         modalSuccess('success');
     } catch (err) {
@@ -63,7 +67,7 @@ function* removeItemSaga(payload) {
 function* increaseQtySaga(payload) {
     try {
         const { product } = payload;
-        const cartItems = increaseQtyCartItemHelper(product);
+        const cartItems = updateCartItemQty(product);
         yield put(updateCartSuccess(cartItems));
     } catch (err) {
         yield put(getCartError(err));
@@ -73,7 +77,7 @@ function* increaseQtySaga(payload) {
 function* decreaseItemQtySaga(payload) {
     try {
         const { product } = payload;
-        const cartItems = decreaseQtyCartItemHelper(product);
+        const cartItems = updateCartItemQty(product);
         yield put(updateCartSuccess(cartItems));
     } catch (err) {
         yield put(getCartError(err));

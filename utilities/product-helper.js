@@ -245,3 +245,25 @@ export function SPGetProductImage(product) {
     );
   }
 }
+
+export function SPGetProductImageCart(product) {
+  if (!_.isEmpty(product)) {
+    return (
+      <div className="ps-product__thumbnail-images">
+        <LazyLoad>
+          <img
+            className="ps-product__image"
+            src={product.thumb}
+            alt={product.name}
+          />
+        </LazyLoad>
+      </div>
+    );
+  } else {
+    return (
+      <img
+        src="/static/img/undefined-product-thumbnail.jpg"
+      />
+    );
+  }
+}

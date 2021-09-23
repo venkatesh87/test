@@ -79,7 +79,7 @@ const ProductDetailPage = ({query}) => {
   }
 
   return (
-    <ContainerProductDetailPage title="Product">
+    <ContainerProductDetailPage title={product ? product.name : 'Loading...'}>
       <div className="ps-page ps-page--product-detail">
         <div className="container">
           <div className="ps-page__header">

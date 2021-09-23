@@ -31,7 +31,7 @@ const ModuleProductActions = ({ product }) => {
     return (
         <div className="ps-product__actions">
             <a href="#" onClick={handleAddItemToCart}>
-                Add to cart
+                {"Add to cart"}
             </a>
             <ul>
                 <li>

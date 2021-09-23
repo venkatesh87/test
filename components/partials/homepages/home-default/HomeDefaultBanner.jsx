@@ -2,14 +2,13 @@ import React, {useState, useEffect} from 'react';
 import Slider from 'react-slick';
 import NextArrow from '~/components/elements/carousel/NextArrow';
 import PrevArrow from '~/components/elements/carousel/PrevArrow';
-import _ from "lodash";
+import _ from 'lodash';
 
 const HomeDefaultBanner = (props) => {
   const {templates} = props;
   const [sliderSettings, setSliderSettings] = useState([]);
 
   useEffect(() => {
-      console.log('templates:',templates);
     if (!_.isEmpty(templates)) {
       const widget = templates.find((template) => {
         return template.type === 'slideshow';
@@ -17,7 +16,6 @@ const HomeDefaultBanner = (props) => {
       const sliderSettings = widget.fields.find((field) => {
         return field.key === 'images';
       });
-      console.log('sliderSettings:', sliderSettings);
       setSliderSettings(sliderSettings.value);
     }
   }, []);

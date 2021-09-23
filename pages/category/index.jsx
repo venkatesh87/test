@@ -66,14 +66,16 @@ const CategoryPage = () => {
         </div>
       ));
     } else {
-      shopItemsView = <p>No Product found.</p>;
+      shopItemsView = <p>{'No Product found.'}</p>;
     }
   } else {
-    shopItemsView = <p>Loading data...</p>;
+    shopItemsView = <p>{'Loading data...'}</p>;
   }
 
   return (
-    <ContainerPage title={categoryName}>
+    <ContainerPage
+      title={!_.isEmpty(categoryName) ? categoryName : 'Loading ...'}
+    >
       <div className="ps-shop ps-shop--sidebar">
         <div className="container">
           <div className="ps-shop__container">
@@ -103,7 +105,7 @@ const CategoryPage = () => {
               </div>
               <div className="ps-shop__footer">
                 <a className="ps-link--under" href="#">
-                  Discover more
+                  {'Discover more'}
                 </a>
               </div>
             </div>

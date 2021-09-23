@@ -14,7 +14,7 @@ const ModuleEcomerceSummary = ({ cart }) => {
     }
 
     useEffect(() => {
-        getProductByCardItems(cart);
+        // getProductByCardItems(cart);
     }, [cart]);
 
     let cartItemsViews;

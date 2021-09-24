@@ -44,6 +44,18 @@ class CartRepository {
       .catch((error) => ({error: JSON.stringify(error)}));
     return reponse;
   }
+
+  async removeCartItem(cartKey, cartItem) {
+    const reponse = await Repository.post(
+      `${baseUrl}/thehouseoffa/carts/remove-cart-item?cart_key=${cartKey}`,
+      cartItem
+    )
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => ({error: JSON.stringify(error)}));
+    return reponse;
+  }
 }
 
 export default new CartRepository();

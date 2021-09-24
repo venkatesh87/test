@@ -16,21 +16,18 @@ const ModuleHeaderActions = ({cart}) => {
   }
 
   async function getCartItems() {
-    const cartKey = await getCartKeyFromStorage();
 
-    if (!_.isEmpty(cartKey)) {
-      const cart = await CartRepository.getCartItemsByCartKey(cartKey);
-      if (!_.isEmpty(cart.items)) {
-        setCartTotal(Object.entries(cart.items).length);
-      } else {
-        setCartTotal(0);
-      }
+    const items = await cart;
+    if (!_.isEmpty(items)) {
+      setCartTotal(items.length);
+    } else {
+      setCartTotal(0);
     }
   }
 
   useEffect(() => {
     getCartItems();
-  }, []);
+  }, [cart]);
 
   return (
     <div className="header__actions">

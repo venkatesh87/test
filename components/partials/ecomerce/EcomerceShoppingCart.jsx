@@ -6,8 +6,8 @@ import ModuleEcomerceSummary from '~/components/partials/ecomerce/modules/Module
 const EcomerceShoppingCart = (props) => {
   const {cart} = props;
   return (
-    <div className="ps-shopping-cart">
-      <ModuleEcomerceTableCartItems cart={cart}/>
+    <div className="ps-shopping-cart">     
+      <ModuleEcomerceTableCartItems />
       <div className="ps-section__content">
         <div className="ps-section__actions">
           <figure>

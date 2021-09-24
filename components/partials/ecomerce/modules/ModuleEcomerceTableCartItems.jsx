@@ -1,45 +1,51 @@
 import React, {useEffect, useState} from 'react';
 import {connect, useDispatch} from 'react-redux';
-import {getCartItemsByCartKey} from '~/utilities/ecomerce-helpers';
 import {
   decreaseItemQty,
   increaseItemQty,
-  removeItem,
-  getCart
+  removeItem
 } from '~/store/cart/action';
 import ProductOnCart from '~/components/elements/products/ProductOnCart';
 import _ from 'lodash';
 
 const ModuleEcomerceTableCartItems = ({cart}) => {
- 
   const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
   const dispatch = useDispatch();
 
   function handleIncreaseItemQty(e, product) {
-    product.quantity = product.quantity + 1;
-    dispatch(increaseItemQty(product));
+    let {quantity} = product;
+    quantity++;
+    if (quantity <= 99) {
+      product.quantity = quantity;
+      e.preventDefault();
+      dispatch(increaseItemQty(product));
+    }
   }
 
   function handleDecreaseItemQty(e, product) {
-    product.quantity = product.quantity - 1;
-    dispatch(decreaseItemQty(product));
-    
+    let {quantity} = product;
+    quantity--;
+    if (quantity >= 1) {
+      product.quantity = quantity;
+      e.preventDefault();
+      dispatch(decreaseItemQty(product));
+    }
   }
 
-  function handleRemoveItem(e, productId) {
+  function handleRemoveItem(e, product) {
     e.preventDefault();
-    dispatch(removeItem({id: productId}));
+    dispatch(removeItem(product));
   }
 
   async function getCartItems() {
-    const items = await getCartItemsByCartKey();
+    const items = await cart;
     setCartItems(items);
   }
 
   useEffect(() => {
     getCartItems();
-  }, []);
+  }, [cart]);
 
   // View
   let cartItemsViews;
@@ -80,7 +86,7 @@ const ModuleEcomerceTableCartItems = ({cart}) => {
             <a
               className="ps-icon"
               href="#"
-              onClick={(e) => handleRemoveItem(e, item.product_id)}
+              onClick={(e) => handleRemoveItem(e, item)}
             >
               <i className="icon-cross"></i>
             </a>
@@ -116,5 +122,4 @@ const ModuleEcomerceTableCartItems = ({cart}) => {
   );
 };
 
-// export default connect((state) => state.cart)(ModuleEcomerceTableCartItems);
-export default ModuleEcomerceTableCartItems;
+export default connect((state) => state.cart)(ModuleEcomerceTableCartItems);

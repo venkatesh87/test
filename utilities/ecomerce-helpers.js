@@ -226,7 +226,8 @@ export async function addItemToCart(product) {
     variation: {},
     variation_id: 0
   };
-  const response = await CartRepository.addToCart(cartKey, cartItem);
+  await CartRepository.addToCart(cartKey, cartItem);
+  const response = await getCartItemsByCartKey();
   return response;
   //TODO
 }
@@ -237,6 +238,17 @@ export async function updateCartItemQty(product) {
     cart_item_key: product.key,
     quantity: product.quantity
   };
-  const response = await CartRepository.updateCartItemQty(cartKey, cartItem);
+  await CartRepository.updateCartItemQty(cartKey, cartItem);
+  const response = await getCartItemsByCartKey();
+  return response;
+}
+
+export async function removeCartItem(product) {
+  const cartKey = await getCartKeyFromStorage();
+  const cartItem = {
+    cart_item_key: product.key
+  };
+  await CartRepository.removeCartItem(cartKey, cartItem);
+  const response = await getCartItemsByCartKey();
   return response;
 }

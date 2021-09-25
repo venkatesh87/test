@@ -30,8 +30,12 @@
                 border: none;
                 font-size: 14px;
                 font-weight: 600;
-                color: $color-text;
-                border-bottom: 1px solid #ddd;
+                color: $color-text;             
+
+            }
+            border-bottom: 1px solid #ddd !important;
+            &:last-child {
+                border-bottom:none !important;
             }
         }
     }
@@ -172,7 +176,7 @@
             > td {
                 padding: 30px 15px;
                 border: none;
-                vertical-align: middle;
+                vertical-align: top;
 
                 &:first-child {
                     min-width: 350px;

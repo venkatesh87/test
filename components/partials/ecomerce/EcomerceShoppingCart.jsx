@@ -11,7 +11,7 @@ const EcomerceShoppingCart = (props) => {
       <div className="ps-section__content">
         <div className="ps-section__actions">
           <figure>
-            <Link href="/shop">
+            <Link href="/shop/categories">
               <a className="ps-btn ps-btn--outline">{"Continue shopping"}</a>
             </Link>
           </figure>

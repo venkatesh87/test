@@ -2,12 +2,18 @@ import {fromJS} from 'immutable';
 
 import {REHYDRATE} from 'redux-persist/lib/constants';
 import * as Actions from './constants';
-import {notificationMessage} from 'src/utils/error';
+import { notification } from 'antd';
 import {
   shippingAddressInit,
   billingAddressInit,
   errorInit as initError,
 } from './config';
+
+const notifiy = (message, type) => {
+  notification[type]({
+      message: e.message
+  });
+};
 
 const initState = fromJS({
   isLogin: false,
@@ -57,7 +63,7 @@ export default function authReducer(state = initState, action = {}) {
         .set('pendingFacebook', false)
         .set('pendingApple', false);
     case Actions.SIGN_IN_WITH_EMAIL_ERROR:
-      const errorSignIn = notificationMessage(action.payload);
+      const errorSignIn = notifiy(action.payload, 'danger');
       return state.set('pending', false).set('loginError', fromJS(errorSignIn));
     case Actions.SIGN_IN_WITH_MOBILE:
       return state.set('pendingMobile', true);
@@ -83,7 +89,7 @@ export default function authReducer(state = initState, action = {}) {
     case Actions.SIGN_UP_WITH_EMAIL_SUCCESS:
       return state.set('pending', false);
     case Actions.SIGN_UP_WITH_EMAIL_ERROR:
-      const errorSignUp = notificationMessage(action.payload);
+      const errorSignUp = notifiy(action.payload, 'danger');
       return state
         .set('pending', false)
         .set('signUpError', fromJS(errorSignUp));
@@ -104,7 +110,7 @@ export default function authReducer(state = initState, action = {}) {
     case Actions.CHANGE_PASSWORD_SUCCESS:
       return state.set('pendingChangePassword', false);
     case Actions.CHANGE_PASSWORD_ERROR:
-      const errorChangePass = notificationMessage(action.payload);
+      const errorChangePass = notifiy(action.payload, 'danger');
       return state
         .set('pendingChangePassword', false)
         .set('changePasswordError', fromJS(errorChangePass));
@@ -120,7 +126,7 @@ export default function authReducer(state = initState, action = {}) {
     case Actions.FORGOT_PASSWORD_SUCCESS:
       return state.set('pendingForgotPassword', false);
     case Actions.FORGOT_PASSWORD_ERROR:
-      const errorForgotPass = notificationMessage(action.payload);
+      const errorForgotPass = notifiy(action.payload, 'danger');
       return state
         .set('pendingForgotPassword', false)
         .set('forgotPasswordError', fromJS(errorForgotPass));

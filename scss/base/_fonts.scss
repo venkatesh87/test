@@ -1,0 +1,554 @@
+// @font-face {
+//     font-family: Avenir Next;
+//     src: url(font/AvenirNext-BoldItalic.woff2) format('woff2'),
+//       url(/font/AvenirNext-BoldItalic.woff) format('woff');
+//     font-weight: 700;
+//     font-style: italic;
+//   }
+//   @font-face {
+//     font-family: Avenir Next Ultra;
+//     src: url(font/AvenirNext-UltraLight.woff2) format('woff2'),
+//       url(/font/AvenirNext-UltraLight.woff) format('woff');
+//     font-weight: 200;
+//     font-style: normal;
+//   }
+//   @font-face {
+//     font-family: Avenir Next Ultra;
+//     src: url(font/AvenirNext-UltraLightItalic.woff2) format('woff2'),
+//       url(/font/AvenirNext-UltraLightItalic.woff) format('woff');
+//     font-weight: 200;
+//     font-style: italic;
+//   }
+//   @font-face {
+//     font-family: Avenir Next;
+//     src: url(font/AvenirNext-Heavy.woff2) format('woff2'),
+//       url(/font/AvenirNext-Heavy.woff) format('woff');
+//     font-weight: 900;
+//     font-style: normal;
+//   }
+//   @font-face {
+//     font-family: Avenir Next;
+//     src: url(font/AvenirNext-Italic.woff2) format('woff2'),
+//       url(/font/AvenirNext-Italic.woff) format('woff');
+//     font-weight: 400;
+//     font-style: italic;
+//   }
+//   @font-face {
+//     font-family: Avenir Next;
+//     src: url(font/AvenirNext-HeavyItalic.woff2) format('woff2'),
+//       url(/font/AvenirNext-HeavyItalic.woff) format('woff');
+//     font-weight: 900;
+//     font-style: italic;
+//   }
+//   @font-face {
+//     font-family: Avenir Next Demi;
+//     src: url(font/AvenirNext-DemiBoldItalic.woff2) format('woff2'),
+//       url(/font/AvenirNext-DemiBoldItalic.woff) format('woff');
+//     font-weight: 600;
+//     font-style: italic;
+//   }
+//   @font-face {
+//     font-family: Avenir Next;
+//     src: url(font/AvenirNext-Bold.woff2) format('woff2'),
+//       url(/font/AvenirNext-Bold.woff) format('woff');
+//     font-weight: 700;
+//     font-style: normal;
+//   }
+//   @font-face {
+//     font-family: Avenir Next;
+//     src: url(font/AvenirNext-Regular.woff2) format('woff2'),
+//       url(/font/AvenirNext-Regular.woff) format('woff');
+//     font-weight: 400;
+//     font-style: normal;
+//   }
+//   @font-face {
+//     font-family: Avenir Next Demi;
+//     src: url(font/AvenirNext-DemiBold.woff2) format('woff2'),
+//       url(/font/AvenirNext-DemiBold.woff) format('woff');
+//     font-weight: 600;
+//     font-style: normal;
+//   }
+//   @font-face {
+//     font-family: Avenir Next;
+//     src: url(font/AvenirNext-MediumItalic.woff2) format('woff2'),
+//       url(/font/AvenirNext-MediumItalic.woff) format('woff');
+//     font-weight: 500;
+//     font-style: italic;
+//   }
+//   @font-face {
+//     font-family: Avenir Next;
+//     src: url(font/AvenirNext-Medium.woff2) format('woff2'),
+//       url(/font/AvenirNext-Medium.woff) format('woff');
+//     font-weight: 500;
+//     font-style: normal;
+//   }
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText-Thin.eot');
+    src: url('/static/fonts/BrandonText-Thin.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-Thin.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-Thin.woff') format('woff'),
+        url('/static/fonts/BrandonText-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText-ThinItalic.eot');
+    src: url('/static/fonts/BrandonText-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-ThinItalic.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-ThinItalic.woff') format('woff'),
+        url('/static/fonts/BrandonText-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText-Light.eot');
+    src: url('/static/fonts/BrandonText-Light.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-Light.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-Light.woff') format('woff'),
+        url('/static/fonts/BrandonText-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText-LightItalic.eot');
+    src: url('/static/fonts/BrandonText-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-LightItalic.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-LightItalic.woff') format('woff'),
+        url('/static/fonts/BrandonText-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText-Regular.eot');
+    src: url('/static/fonts/BrandonText-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-Regular.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-Regular.woff') format('woff'),
+        url('/static/fonts/BrandonText-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText-RegularItalic.eot');
+    src: url('/static/fonts/BrandonText-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-RegularItalic.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-RegularItalic.woff') format('woff'),
+        url('/static/fonts/BrandonText-RegularItalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText-Medium.eot');
+    src: url('/static/fonts/BrandonText-Medium.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-Medium.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-Medium.woff') format('woff'),
+        url('/static/fonts/BrandonText-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText-MediumItalic.eot');
+    src: url('/static/fonts/BrandonText-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-MediumItalic.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-MediumItalic.woff') format('woff'),
+        url('/static/fonts/BrandonText-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText-Medium.eot');
+    src: url('/static/fonts/BrandonText-Medium.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-Medium.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-Medium.woff') format('woff'),
+        url('/static/fonts/BrandonText-Medium.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText-MediumItalic.eot');
+    src: url('/static/fonts/BrandonText-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-MediumItalic.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-MediumItalic.woff') format('woff'),
+        url('/static/fonts/BrandonText-MediumItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText-Bold.eot');
+    src: url('/static/fonts/BrandonText-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-Bold.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-Bold.woff') format('woff'),
+        url('/static/fonts/BrandonText-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText-BoldItalic.eot');
+    src: url('/static/fonts/BrandonText-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-BoldItalic.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-BoldItalic.woff') format('woff'),
+        url('/static/fonts/BrandonText-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText--Black.eot');
+    src: url('/static/fonts/BrandonText-Black.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-Black.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-Black.woff') format('woff'),
+        url('/static/fonts/BrandonText-Black.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brandon Text';
+    src: url('/static/fonts/BrandonText-BlackItalic.eot');
+    src: url('/static/fonts/BrandonText-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/BrandonText-BlackItalic.woff2') format('woff2'),
+        url('/static/fonts/BrandonText-BlackItalic.woff') format('woff'),
+        url('/static/fonts/BrandonText-BlackItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+// Gilroy
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/fonts/Gilroy/Gilroy-Light.woff') format('woff'),
+        url('/static/fonts/Gilroy/Gilroy-Light.eot') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-Light.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/fonts/Gilroy/Gilroy-Regular.woff') format('woff'),
+        url('/static/fonts/Gilroy/Gilroy-Regular.eot') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-Regular.ttf') format('truetype');
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/fonts/Gilroy/Gilroy-RegularItalic.woff') format('woff'),
+        url('/static/fonts/Gilroy/Gilroy-RegularItalic.eot') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-RegularItalic.ttf') format('truetype');
+    font-display: swap;
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/fonts/Gilroy/Gilroy-Medium.woff') format('woff'),
+        url('/static/fonts/Gilroy/Gilroy-Medium.eot') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-Medium.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/fonts/Gilroy/Gilroy-SemiBold.woff') format('woff'),
+        url('/static/fonts/Gilroy/Gilroy-SemiBold.eot') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/fonts/Gilroy/Gilroy-Bold.woff') format('woff'),
+        url('/static/fonts/Gilroy/Gilroy-Bold.eot') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/fonts/Gilroy/Gilroy-ExtraBold.woff') format('woff'), 
+        url('/static/fonts/Gilroy/Gilroy-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-ExtraBold.eot') format('embedded-opentype'),
+        url('/static/fonts/Gilroy/Gilroy-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+// Made for Font
+
+@font-face {
+    font-family: "Madefor";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300;
+    src: url("/static/fonts/Madefor/MadeforText-Regular.woff2") format("woff2"),
+    url("/static/fonts/Madefor/MadeforText-Regular.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Madefor";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url("/static/fonts/Madefor/MadeforText-Regular.woff2") format("woff2"),
+    url("/static/fonts/Madefor/MadeforText-Regular.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Madefor";
+    font-style: italic;
+    font-display: swap;
+    font-weight: 400;
+    src: url("/static/fonts/Madefor/MadeforText-RegularItalic.woff2") format("woff2"),
+    url("/static/fonts/Madefor/MadeforText-RegularItalic.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Madefor";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 500;
+    src: url("/static/fonts/Madefor/MadeforText-Regular.woff2") format("woff2"),
+    url("/static/fonts/Madefor/MadeforText-Regular.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Madefor";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 600;
+    src: url("/static/fonts/Madefor/MadeforText-Regular.woff2") format("woff2"),
+    url("/static/fonts/Madefor/MadeforText-Regular.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Madefor";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+    src: url("/static/fonts/Madefor/MadeforText-Bold.woff2") format("woff2"),
+    url("/static/fonts/Madefor/MadeforText-Bold.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Madefor";
+    font-display: swap;
+    font-weight: 700;
+    font-style: italic;
+    src: url("/static/fonts/Madefor/MadeforText-BoldItalic.woff2") format("woff2"),
+    url("/static/fonts/Madefor/MadeforText-BoldItalic.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Madefor";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 800;
+    src: url("/static/fonts/Madefor/MadeforText-XBold.woff2") format("woff2"),
+    url("/static/fonts/Madefor/MadeforText-XBold.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Madefor";
+    font-style: normal;
+    font-weight: 800;
+    font-style: italic;
+    src: url("/static/fonts/Madefor/MadeforText-XBoldItalic.woff2") format("woff2"),
+    url("/static/fonts/Madefor/MadeforText-XBoldItalic.woff") format("woff")
+}
+
+// Cerebri Sans Font
+
+@font-face {
+    font-family: "Cerebri Sans";
+    font-style: normal;
+    font-weight: 300;
+    src: url("/static/fonts/Cerebri-Sans/CerebriSans-Light.eot") format("eot"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Light.woff") format("woff"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Light.ttf") format("truetype"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Light.svg") format("svg"),
+}
+
+@font-face {
+    font-family: "Cerebri Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/static/fonts/Cerebri-Sans/CerebriSans-Regular.eot") format("eot"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Regular.woff") format("woff"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Regular.ttf") format("truetype"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Regular.svg") format("svg"),
+}
+
+@font-face {
+    font-family: "Cerebri Sans";
+    font-style: italic;
+    font-weight: 400;
+    src: url("/static/fonts/Cerebri-Sans/CerebriSans-Italic.eot") format("eot"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Italic.woff") format("woff"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Italic.ttf") format("truetype"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Italic.svg") format("svg"),
+}
+
+@font-face {
+    font-family: "Cerebri Sans";
+    font-style: normal;
+    font-weight: 500;
+    src: url("/static/fonts/Cerebri-Sans/CerebriSans-Medium.eot") format("eot"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Medium.woff") format("woff"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Medium.ttf") format("truetype"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Medium.svg") format("svg"),
+}
+
+@font-face {
+    font-family: "Cerebri Sans";
+    font-style: normal;
+    font-weight: 600;
+    src: url("/static/fonts/Cerebri-Sans/CerebriSans-SemiBold.eot") format("eot"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-SemiBold.woff") format("woff"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-SemiBold.ttf") format("truetype"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-SemiBold.svg") format("svg"),
+}
+
+@font-face {
+    font-family: "Cerebri Sans";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/static/fonts/Cerebri-Sans/CerebriSans-Bold.eot") format("eot"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Bold.woff") format("woff"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Bold.ttf") format("truetype"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Bold.svg") format("svg"),
+}
+
+@font-face {
+    font-family: "Cerebri Sans";
+    font-style: normal;
+    font-weight: 800;
+    src: url("/static/fonts/Cerebri-Sans/CerebriSans-Heavy.eot") format("eot"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Heavy.woff") format("woff"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Heavy.ttf") format("truetype"),
+    url("/static/fonts/Cerebri-Sans/CerebriSans-Heavy.svg") format("svg"),
+}
+
+
+
+// $font-dir: '../static/fonts/';
+
+// @each $id, $weight, $style in $benton-font {
+//   @font-face {
+//     font-family: 'Benton';
+//     font-weight: $weight;
+//     font-style: $style;
+//     src: url('#{$font-dir}BentonSans#{$id}.woff2') format('woff2'),
+//     url('#{$font-dir}BentonSans#{$id}.woff') format('woff');
+//   }
+// }
+
+// @each $id, $weight, $style in $capitolium-head-font {
+//   @font-face {
+//     font-family: 'Capitolium Head';
+//     font-weight: $weight;
+//     font-style: $style;
+//     src: url('#{$font-dir}CapitoliumHead#{$id}.woff2') format('woff2'),
+//     url('#{$font-dir}CapitoliumHead#{$id}.woff') format('woff');
+//   }
+// }
+
+// @each $id, $weight, $style in $capitolium-news-font {
+//   @font-face {
+//     font-family: 'Capitolium News';
+//     font-weight: $weight;
+//     font-style: $style;
+//     src: url('#{$font-dir}CapitoliumNews#{$id}.woff2') format('woff2'),
+//     url('#{$font-dir}CapitoliumNews#{$id}.woff') format('woff');
+//   }
+// }
+
+// $weight-light: 100;
+
+// // Fonts
+// $font-benton: 'Benton', 'Arial', 'Helvetica Neue', 'Helvetica', 'sans-serif';
+// $font-capitolium-head: 'Capitolium Head', 'TimesNewRoman', 'Times New Roman', 'Times', 'Baskerville', 'Georgia', 'serif';
+// $font-capitolium-news: 'Capitolium News', 'TimesNewRoman', 'Times New Roman', 'Times', 'Baskerville', 'Georgia', 'serif';
+// $font-fallback: "Helvetica Neue", Helvetica, Arial, sans-serif;
+// $font-serif-text: $font-capitolium-news;
+// $font-serif-header: $font-capitolium-head;
+// $font-sansserif: $font-benton;
+
+// $benton-font: (
+//                 (Light, $weight-light, normal),
+//                 (Book, normal, normal),
+//                 (Italic, normal, italic),
+//                 (Bold, bold, normal),
+//                 (BoldItalic, bold, italic)
+// );
+
+// $capitolium-head-font: (
+//                 (Bold, bold, normal),
+//                 (Light, $weight-light, normal),
+//                 (Reg, normal, normal)
+// );
+
+// $capitolium-head-font: (
+//                 (Bold, bold, normal),
+//                 (Light, $weight-light, normal),
+//                 (Reg, normal, normal)
+// );
+
+// $capitolium-news-font: (
+//                 (Bold, bold, normal),
+//                 (BoldItalic, bold, italic),
+//                 (Italic, normal, italic),
+//                 (Reg, normal, normal)
+// );

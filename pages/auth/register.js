@@ -30,7 +30,7 @@ const RegisterPage = () => {
                                 <ul className="ps-tab-list">
                                     <li>
                                         <Link href="/auth/login">
-                                            <a>Login</a>
+                                            <a>Sign In</a>
                                         </Link>
                                     </li>
                                     <li className="active">
@@ -44,14 +44,28 @@ const RegisterPage = () => {
                                         <input
                                             className="form-control"
                                             type="text"
-                                            placeholder="Username"
+                                            placeholder="Firstname*"
                                         />
                                     </div>
                                     <div className="form-group">
                                         <input
                                             className="form-control"
                                             type="text"
-                                            placeholder="Email"
+                                            placeholder="Lastname*"
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <input
+                                            className="form-control"
+                                            type="text"
+                                            placeholder="Phone Number*"
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <input
+                                            className="form-control"
+                                            type="text"
+                                            placeholder="Email (Optional)"
                                         />
                                     </div>
                                     <div className="form-group">

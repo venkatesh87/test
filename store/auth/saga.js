@@ -406,7 +406,4 @@ export default function* authSaga() {
   yield takeEvery(Actions.FORGOT_PASSWORD, forgotPasswordSideEffect);
   yield takeEvery(Actions.GET_CUSTOMER, getCustomerSaga);
   yield takeEvery(Actions.UPDATE_CUSTOMER, updateCustomerSaga);
-
-  yield takeEvery(Actions.SIGN_IN_WITH_OTP, signInWithOtpSaga);
-  yield takeEvery(Actions.SIGN_UP_WITH_OTP, signUpWithOtplSaga);
 }

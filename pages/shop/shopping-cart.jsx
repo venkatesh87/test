@@ -2,12 +2,9 @@ import React, {useEffect, useState} from 'react';
 import ContainerPage from '~/components/layouts/ContainerPage';
 import BreadCrumb from '~/components/elements/BreadCrumb';
 import EcomerceShoppingCart from '~/components/partials/ecomerce/EcomerceShoppingCart';
-import {getCartKeyFromStorage} from '~/utilities/ecomerce-helpers';
 import _ from 'lodash';
-import CartRepository from '~/repositories/CartRepository';
 
 const ShoppingCartPage = () => {
-  const [cartItems, setCartItems] = useState([]);
   const breadcrumb = [
     {
       text: 'Home',
@@ -17,28 +14,6 @@ const ShoppingCartPage = () => {
       text: 'Shop'
     }
   ];
-  async function getCartItems() {
-    const cartKey = await getCartKeyFromStorage();
-
-    if (!_.isEmpty(cartKey)) {
-      const cart = await CartRepository.getCartItemsByCartKey(cartKey);
-      if (!_.isEmpty(cart.items)) {
-        let items = [];
-        for (const [keys, value] of Object.entries(cart.items)) {
-          items.push(value);
-        }
-        if (items.length > 0) {
-          setCartItems(items);
-        }
-      } else {
-        setCartItems([]);
-      }
-    }
-  }
-
-  useEffect(() => {
-    getCartItems();
-  }, []);
 
   return (
     <ContainerPage title="Shopping Cart">
@@ -49,7 +24,7 @@ const ShoppingCartPage = () => {
             <BreadCrumb breacrumb={breadcrumb} />
           </div>
           <div className="ps-page__content">
-            {!_.isEmpty(cartItems) && <EcomerceShoppingCart cart={cartItems} />}
+            <EcomerceShoppingCart />
           </div>
         </div>
       </div>

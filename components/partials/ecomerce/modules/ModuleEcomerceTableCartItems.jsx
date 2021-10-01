@@ -39,7 +39,7 @@ const ModuleEcomerceTableCartItems = ({cart}) => {
   }
 
   async function getCartItems() {
-    const items = await cart;
+    const {items} = await cart;
     setCartItems(items);
   }
 

@@ -16,8 +16,7 @@ const ModuleHeaderActions = ({cart}) => {
   }
 
   async function getCartItems() {
-
-    const items = await cart;
+    const {items} = await cart;
     if (!_.isEmpty(items)) {
       setCartTotal(items.length);
     } else {

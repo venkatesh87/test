@@ -8,6 +8,7 @@ import cookies from 'js-cookie';
 import {getProductsByIds} from '~/repositories/ProductRepository';
 import * as storageHelper from './storage-helpers.js';
 import CartRepository from '~/repositories/CartRepository';
+import _ from 'lodash';
 
 export async function getCartKeyFromStorage() {
   // TODO
@@ -210,11 +211,12 @@ export async function getCartItemsByCartKey() {
         items.push(value);
       }
       if (items.length > 0) {
-        return items;
+        const {coupons, totals} = cart;
+        return {items, coupons, totals};
       }
     }
   }
-  return [];
+  return {items: [], coupons: [], totals: {}};
 }
 
 export async function addItemToCart(product) {
@@ -250,5 +252,40 @@ export async function removeCartItem(product) {
   };
   await CartRepository.removeCartItem(cartKey, cartItem);
   const response = await getCartItemsByCartKey();
+  return response;
+}
+
+export function getCartSubTotal(cartItems) {
+  if (!_.isEmpty(cartItems)) {
+    const lineItemTotal = cartItems.map((item) => item.line_subtotal);
+    const reducer = (previousValue, currentValue) =>
+      previousValue + currentValue;
+    return lineItemTotal.reduce(reducer);
+  }
+  return 0;
+}
+
+export function getCartDiscounts(coupons, totals) {
+  if (!_.isEmpty(coupons) && !_.isEmpty(totals)) {
+    return {coupons: coupons, discountTotal: totals.discount_total};
+  }
+  return {coupons: [], discountTotal: 0};
+}
+
+export async function applyCoupon(couponCode) {
+  const cartKey = await getCartKeyFromStorage();
+  const coupon = {
+    coupon_code: couponCode
+  };
+  const response = await CartRepository.applyCoupon(cartKey, coupon);
+  return response;
+}
+
+export async function removeCoupon(couponCode) {
+  const cartKey = await getCartKeyFromStorage();
+  const coupon = {
+    coupon_code: couponCode
+  };
+  const response = await CartRepository.removeCoupon(cartKey, coupon);
   return response;
 }

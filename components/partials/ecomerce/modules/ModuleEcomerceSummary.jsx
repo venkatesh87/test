@@ -1,35 +1,80 @@
 import React, {useEffect, useState} from 'react';
-import {getCartItemsHelper} from '~/utilities/ecomerce-helpers';
+import {connect, useDispatch} from 'react-redux';
+import {
+  getCartSubTotal,
+  getCartDiscounts,
+  removeCoupon
+} from '~/utilities/ecomerce-helpers';
 import Link from 'next/link';
-import {connect} from 'react-redux';
 import _ from 'lodash';
+import {getCart} from '~/store/cart/action';
 
 const ModuleEcomerceSummary = ({cart}) => {
+  const dispatch = useDispatch();
   const [cartItems, setCartItems] = useState([]);
-  const [subTotal, setSubTotal] = useState(0);
+  const [discounts, setDiscounts] = useState({coupons: [], discountTotal: 0});
 
   async function getCartItems() {
-    const items = await cart;
+    const {items, coupons, totals} = await cart;
     setCartItems(items);
-    if (!_.isEmpty(items)) {
-      const lineItemTotal = items.map((item) => item.line_subtotal);
-      const reducer = (previousValue, currentValue) =>
-        previousValue + currentValue;
-      setSubTotal(lineItemTotal.reduce(reducer));
-    }
+    setDiscounts(getCartDiscounts(coupons, totals));
   }
 
   useEffect(() => {
     getCartItems();
   }, [cart]);
-  
+
+  async function deleteCoupon(couponCode) {
+    await removeCoupon(couponCode);
+    dispatch(getCart());
+  }
+
+  let renderDiscountView = null;
+  if (!_.isEmpty(discounts.coupons)) {
+    renderDiscountView = (
+      <>
+        <div className="d-flex">
+          <div className="flex-grow-1">
+            <h4>{'Discounts'}</h4>
+          </div>
+          <h5>{`-$${discounts.discountTotal}`}</h5>
+        </div>
+        <div className="d-flex flex-column">
+          {discounts.coupons.map((coupon) => (
+            <div className="flex-grow-1">
+              <h5 className="text-secondary">{coupon}</h5>
+              <button
+                type="button"
+                class="btn btn-link"
+                onClick={() => {
+                  deleteCoupon(coupon);
+                }}
+              >
+                {'Remove'}
+              </button>
+            </div>
+          ))}
+        </div>
+      </>
+    );
+  } else {
+    renderDiscountView = (
+      <div className="d-flex">
+        <div className="flex-grow-1">
+          <h4>{'Discounts'}</h4>
+        </div>
+        <h5 className="text-secondary">{`$0`}</h5>
+      </div>
+    );
+  }
   return (
     <div className="ps-block--checkout-total">
       <div className="ps-block__top">
+        <div className="ps-block__shipping">{renderDiscountView}</div>
         <h4>
-          {'Subtotal'} <span>{`$${subTotal}`}</span>
+          {'Subtotal'} <span>{`$${getCartSubTotal(cartItems)}`}</span>
         </h4>
-        <div className="ps-block__shipping">
+        {/* <div className="ps-block__shipping">
           <h5>{'Shipping'}</h5>
           <div className="ps-radio">
             <input
@@ -64,8 +109,8 @@ const ModuleEcomerceSummary = ({cart}) => {
               {'Local Delivery'} <span>{'+$20.00'}</span>
             </label>
           </div>
-        </div>
-        <div className="ps-block__caculate">
+        </div> */}
+        {/* <div className="ps-block__caculate">
           <h5>{'Calculate Shipping'}</h5>
           <div className="form-group">
             <input
@@ -75,11 +120,11 @@ const ModuleEcomerceSummary = ({cart}) => {
             />
           </div>
           <button className="ps-btn ps-btn--gray">{'Update Total'}</button>
-        </div>
+        </div> */}
         <div className="ps-block__total">
           <h3>
             {'Total'}
-            <span>{`$${subTotal}`}</span>
+            <span>{`$${getCartSubTotal(cartItems)}`}</span>
           </h3>
         </div>
       </div>

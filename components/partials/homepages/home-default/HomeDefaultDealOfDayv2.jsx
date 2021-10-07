@@ -8,7 +8,7 @@ import _ from 'lodash';
 import SettingsRepository from '~/repositories/SettingsRepository';
 import CountDown from '~/components/elements/CountDown';
 
-const HomeDefaultNewArrival = ({templates}) => {
+const HomeDefaultDealOfDay = ({templates}) => {
   const [productItems, setProductItems] = useState([]);
 
   async function getNewArrivals(widgetId) {
@@ -139,10 +139,21 @@ const HomeDefaultNewArrival = ({templates}) => {
     <div className="ps-section">
       <div className="container">
         <div className="ps-section__header">
-          <figure>
-            <figcaption>{'New Arrivals'}</figcaption>
-            <p>{'Browse the huge variety of our products'}</p>
-           
+          <figure className="d-flex justify-content-between">
+            <div>
+              <figcaption>{'Deals of the day'}</figcaption>
+              <p>{'Hurry Now'}</p>
+            </div>
+            <div className="ps-deal-of-day-v1">
+              <div className="ps-section__content">
+                <div className="ps-section__countdown">
+                  <CountDown
+                    timeTillDate="12 31 2021, 6:00 am"
+                    timeFormat="MM DD YYYY, h:mm a"
+                  />
+                </div>
+              </div>
+            </div>
           </figure>
           {/* <ul>{categoriesView}</ul> */}
         </div>
@@ -162,4 +173,4 @@ const HomeDefaultNewArrival = ({templates}) => {
   );
 };
 
-export default HomeDefaultNewArrival;
+export default HomeDefaultDealOfDay;

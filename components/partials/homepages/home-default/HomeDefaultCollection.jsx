@@ -1,63 +1,45 @@
-import React from 'react';
-import Link from 'next/link';
+import React, {useState, useEffect} from 'react';
+import {useRouter} from 'next/router';
 
-const HomeDefaultCollection = () => {
-    return (
-        <div className="ps-home-collection-2">
-            <figure>
-                <div className="ps-block--collection-2 left">
-                    <div
-                        className="ps-block__thumbnail bg--top-right"
-                        style={{
-                            backgroundImage:
-                                "url('/static/img/homepage/home-right-to-left/collection/1.jpg')",
-                        }}></div>
-                    <div className="ps-block__content">
-                        <p>Jaccquard Print</p>
-                        <h4>Hairband Collection</h4>
-                        <Link href="/shop">
-                            <a className="ps-link--under">Discover more</a>
-                        </Link>
-                    </div>
-                </div>
-            </figure>
-            <figure>
-                <div className="ps-block--collection-2 center white">
-                    <div
-                        className="ps-block__thumbnail bg--cover"
-                        style={{
-                            backgroundImage:
-                                "url('/static/img/homepage/home-right-to-left/collection/2.jpg')",
-                        }}></div>
-                    <div className="ps-block__content">
-                        <p>Jaccquard Print</p>
-                        <h4>Hairband Collection</h4>
-                        <Link href="/shop">
-                            <a className="ps-link--under">Discover more</a>
-                        </Link>
-                    </div>
-                </div>
-            </figure>
-            <figure>
-                <div className="ps-block--collection-2 right">
-                    <div
-                        className="ps-block__thumbnail bg--top-left"
-                        style={{
-                            backgroundImage:
-                                "url('/static/img/homepage/home-right-to-left/collection/3.jpg')",
-                        }}
-                    />
-                    <div className="ps-block__content">
-                        <p>Special Price</p>
-                        <h4>Corduroy Culottes</h4>
-                        <Link href="/shop">
-                            <a className="ps-link--under">Discover more</a>
-                        </Link>
-                    </div>
-                </div>
-            </figure>
+const HomeDefaultCollection = ({templates}) => {
+  const [bannerSettings, setBannerSettings] = useState([]);
+  const router = useRouter();
+  useEffect(() => {
+    if (!_.isEmpty(templates)) {
+      const widget = templates.find((template) => {
+        return template.type === 'banners';
+      });
+      const banners = widget.fields.find((field) => {
+        return field.key === 'images';
+      });
+      setBannerSettings(banners.value);
+    }
+  }, []);
+  const handleClick = (e, banner) => {
+    e.preventDefault();
+    const {action} = banner;
+    let redirectUrl = '#';
+    if (action.type === 'category') {
+      redirectUrl = `/${action.type}?id=${action.id}`;
+    } else {
+      redirectUrl = `/${action.type}/${action.id}`;
+    }
+    router.push(redirectUrl);
+  };
+  return (
+    <div className="card-deck cursor-pointer">
+      {bannerSettings.map((banner) => (
+        <div
+          className="card"
+          onClick={(event) => {
+            handleClick(event, banner);
+          }}
+        >
+          <img className="card-img" src={banner.image.en} alt="banner image" />
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default HomeDefaultCollection;

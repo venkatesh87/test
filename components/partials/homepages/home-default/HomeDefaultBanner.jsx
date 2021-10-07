@@ -23,11 +23,12 @@ const HomeDefaultBanner = (props) => {
   const carouselSetting = {
     dots: false,
     infinite: true,
-    speed: 750,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,
-    fade: true,
+    autoplay: true,
+    speed: 1000,
+    autoplaySpeed: 5000,
+    cssEase: 'linear',
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />
   };
@@ -37,59 +38,13 @@ const HomeDefaultBanner = (props) => {
         {sliderSettings.map((slider) => (
           <div className="carousel-item">
             <div
-              className="ps-banner--3 bg--top-right"
+              className="ps-banner--3"
               style={{
                 background: `url(${slider.image.en})`
               }}
-            >
-              <div className="ps-banner__content">
-                {/* <p>Next SS Preview</p>
-              <h3>
-                Woman <br /> Shoes
-              </h3> */}
-                <a
-                  className="ps-link--under"
-                  href={`/${slider.action.type}/${slider.action.id}`}
-                >
-                  Discover more
-                </a>
-              </div>
-            </div>
+            ></div>
           </div>
         ))}
-        {/* <div className="carousel-item">
-          <div
-            className="ps-banner--3 bg--top-left right"
-            style={{
-              background: `url(/static/img/bg/home-default/2.jpg)`
-            }}
-          >
-            <div className="ps-banner__content">
-              <p>Trendy Pink</p>
-              <h3>Sneakers</h3>
-              <a className="ps-link--under" href="#">
-                Discover more
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <div
-            className="ps-banner--3 bg--cover white"
-            style={{
-              background: `url(/static/img/bg/home-default/3.jpg)`
-            }}
-          >
-            <div className="ps-banner__content">
-              <h3>
-                Winter <br /> Collection
-              </h3>
-              <a className="ps-link--under" href="#">
-                Discover more
-              </a>
-            </div>
-          </div>
-        </div> */}
       </Slider>
     </div>
   );

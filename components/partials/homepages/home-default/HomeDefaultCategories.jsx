@@ -21,24 +21,34 @@ const HomeDefaultCategories = () => {
     router.push(redirectUrl);
   };
   return (
-    <div className="card-deck cursor-pointer">
-      {categories.map((category) => (
-        <div
-          className="card border-0"
-          onClick={(event) => {
-            handleClick(event, category);
-          }}
-        >
-          <img
-            className="card-img rounded"
-            src={category.image.url}
-            alt="category image"
-          />
-          <div className="card-body">
-            <a className="ps-link--under">{category.name}</a>
-          </div>
+    <div className="ps-section">
+      <div className="container">
+        <div className="ps-section__header">
+          <figure>
+            <figcaption>{'Shop by categories'}</figcaption>
+            <p>{'Browse the huge variety of our products'}</p>
+          </figure>
         </div>
-      ))}
+        <div className="card-deck cursor-pointer">
+          {categories.map((category) => (
+            <div
+              className="card border-0"
+              onClick={(event) => {
+                handleClick(event, category);
+              }}
+            >
+              <img
+                className="card-img rounded"
+                src={category.image.url}
+                alt="category image"
+              />
+              <div className="card-body">
+                <a className="ps-link--under">{category.name}</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

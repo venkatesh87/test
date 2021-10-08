@@ -27,17 +27,31 @@ const HomeDefaultCollection = ({templates}) => {
     router.push(redirectUrl);
   };
   return (
-    <div className="card-deck cursor-pointer">
-      {bannerSettings.map((banner) => (
-        <div
-          className="card"
-          onClick={(event) => {
-            handleClick(event, banner);
-          }}
-        >
-          <img className="card-img" src={banner.image.en} alt="banner image" />
+    <div className="ps-section">
+      <div className="container">
+        <div className="ps-section__header">
+          <figure>
+            <figcaption>{'Offers'}</figcaption>
+            <p>{'Check out the latest offers'}</p>
+          </figure>
         </div>
-      ))}
+        <div className="card-deck cursor-pointer">
+          {bannerSettings.map((banner) => (
+            <div
+              className="card"
+              onClick={(event) => {
+                handleClick(event, banner);
+              }}
+            >
+              <img
+                className="card-img"
+                src={banner.image.en}
+                alt="banner image"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

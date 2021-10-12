@@ -91,6 +91,22 @@ class CartRepository {
       .catch((error) => ({error: JSON.stringify(error)}));
     return reponse;
   }
+
+  async submitOrder(order) {
+    try {
+      const response = await Repository.post(
+        `${baseUrl}/thehouseoffa/checkout?nonce=`,
+        order
+      );
+      if (response && response.data) {
+        return response.data;
+      }
+      return null;
+    } catch (error) {
+      console.log('error:', error);
+      return null;
+    }
+  }
 }
 
 export default new CartRepository();

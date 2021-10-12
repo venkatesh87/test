@@ -15,7 +15,7 @@ export async function getCartKeyFromStorage() {
   const jwt = await storageHelper.getData('jwt');
   if (jwt) {
     const accessToken = JSON.parse(jwt);
-    if (accessToken.cartKey) {
+    if (!_.isEmpty(accessToken.cartKey)) {
       return accessToken.cartKey;
     }
   }
@@ -219,6 +219,11 @@ export async function getCartItemsByCartKey() {
   return {items: [], coupons: [], totals: {}};
 }
 
+async function updateCartKeyStorage(newCartKey) {
+  const data = {cartKey: newCartKey};
+  await storageHelper.storeData('jwt', JSON.stringify(data));
+}
+
 export async function addItemToCart(product) {
   const cartKey = await getCartKeyFromStorage();
   const cartItem = {
@@ -228,7 +233,8 @@ export async function addItemToCart(product) {
     variation: {},
     variation_id: 0
   };
-  await CartRepository.addToCart(cartKey, cartItem);
+  const addCartResponse = await CartRepository.addToCart(cartKey, cartItem);
+  await updateCartKeyStorage(addCartResponse.cart_key);
   const response = await getCartItemsByCartKey();
   return response;
   //TODO
@@ -287,5 +293,39 @@ export async function removeCoupon(couponCode) {
     coupon_code: couponCode
   };
   const response = await CartRepository.removeCoupon(cartKey, coupon);
+  return response;
+}
+
+export async function submitOrder(cart) {
+  const cartKey = await getCartKeyFromStorage();
+  const {deliveryAddress, paymentMethod} = cart;
+  let orderDetails = {
+    billing_address_1: deliveryAddress.addressLine1,
+    billing_address_2: deliveryAddress.addressLine2,
+    billing_city: deliveryAddress.city,
+    billing_company: 'vone',
+    billing_country: deliveryAddress.country,
+    billing_email: deliveryAddress.email,
+    billing_first_name: deliveryAddress.firstName,
+    billing_last_name: deliveryAddress.lastName,
+    billing_phone: deliveryAddress.phone,
+    billing_postcode: deliveryAddress.postCode,
+    billing_state: deliveryAddress.state,
+    cart_key: cartKey,
+    payment_method: paymentMethod.id,
+    shipping_address_1: deliveryAddress.addressLine1,
+    shipping_address_2: deliveryAddress.addressLine2,
+    shipping_city: deliveryAddress.city,
+    shipping_company: 'vone',
+    shipping_country: deliveryAddress.country,
+    shipping_email: deliveryAddress.email,
+    shipping_first_name: deliveryAddress.firstName,
+    shipping_last_name: deliveryAddress.lastName,
+    shipping_phone: deliveryAddress.phone,
+    shipping_postcode: deliveryAddress.postCode,
+    shipping_state: deliveryAddress.state
+  };
+  const response = await CartRepository.submitOrder(orderDetails);
+  await updateCartKeyStorage('');
   return response;
 }

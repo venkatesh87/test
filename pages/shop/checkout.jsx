@@ -1,7 +1,8 @@
 import React from 'react';
 import ContainerPage from '~/components/layouts/ContainerPage';
 import BreadCrumb from '~/components/elements/BreadCrumb';
-import FormCheckout from '~/components/shared/forms/FormCheckout';
+import FormCheckout from '~/components/shared/forms/FormSelectDeliveryAddress';
+import ModuleCheckoutWizard from '~/components/shared/forms/modules/ModuleCheckoutWizard';
 
 const CheckoutPage = () => {
     const breadcrumb = [
@@ -19,11 +20,12 @@ const CheckoutPage = () => {
             <div className="ps-page--default">
                 <div className="container">
                     <div className="ps-page__header">
-                        <h3>Checkout</h3>
+                        <h3>{"Checkout"}</h3>
                         <BreadCrumb breacrumb={breadcrumb} />
                     </div>
                     <div className="ps-page__content">
-                        <FormCheckout />
+                        {/* <FormCheckout /> */}
+                        <ModuleCheckoutWizard/>
                     </div>
                 </div>
             </div>

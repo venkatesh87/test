@@ -1,5 +1,5 @@
 import React from 'react';
-import ModuleCheckoutSummary from '~/components/shared/forms/modules/ModuleCheckoutSummary';
+// import ModuleCheckoutSummary from '~/components/shared/forms/modules/ModuleCheckoutOrderSummary';
 
 const FormCheckout = () => {
   function placeOrder(e) {
@@ -161,7 +161,7 @@ const FormCheckout = () => {
         <div className="col-md-6">
           <div className="ps-form__orders">
             <h3>{'Your order'}</h3>
-            <ModuleCheckoutSummary />
+            {/* <ModuleCheckoutSummary /> */}
           </div>
         </div>
       </div>

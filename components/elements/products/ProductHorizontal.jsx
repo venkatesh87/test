@@ -32,7 +32,7 @@ const ProductHorizontal = ({ product }) => {
                         </Link>
 
                         <p className="ps-product__price">
-                            <span>£</span> {product.price}
+                            <span>₹</span> {product.price}
                         </p>
                     </figure>
                     <div className="ps-product__rating">

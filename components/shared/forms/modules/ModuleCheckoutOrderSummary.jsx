@@ -39,19 +39,19 @@ const ModuleCheckoutOrderSummary = ({cart}) => {
           <div className="flex-grow-1">
             <span>{'Items:'}</span>
           </div>
-          <span>{`$${cartTotals.subtotal}`}</span>
+          <span>{`₹${cartTotals.subtotal}`}</span>
         </div>
         <div className="d-flex">
           <div className="flex-grow-1">
             <span>{'Discounts:'}</span>
           </div>
-          <span>{`-$${cartTotals.discount_total}`}</span>
+          <span>{`-₹${cartTotals.discount_total}`}</span>
         </div>
         <div className="d-flex">
           <div className="flex-grow-1">
             <span>{'Total:'}</span>
           </div>
-          <span>{`$${Math.ceil(cartTotals.total)}`}</span>
+          <span>{`₹${Math.ceil(cartTotals.total)}`}</span>
         </div>
       </div>
     </>

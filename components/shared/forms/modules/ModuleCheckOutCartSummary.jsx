@@ -29,8 +29,8 @@ const ModuleCheckOutCartSummary = ({cart}) => {
             </div>
             <div>
               <div>{item.name}</div>
-              <div>{`Price: ${item.price}`}</div>
-              <div>{`Quantity: ${item.quantity}`}</div>
+              <div>{`Price: ₹{item.price}`}</div>
+              <div>{`Quantity: ₹{item.quantity}`}</div>
             </div>
           </div>
         </div>

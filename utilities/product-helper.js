@@ -161,22 +161,22 @@ export function SPGetProductThumbailImages(product, size) {
 
 export function SPGetProductPrice(product) {
   let view;
-  if (product.sale_price) {
+  if (product.sale_price !== product.regular_price) {
     view = (
       <p className="ps-product__price sale">
-        <span>£</span>
-        {formatCurrency(product.price)}
+        <span>₹</span>
+        {formatCurrency(product.sale_price)}
         <del className="ml-1">
-          <span>£</span>
-          {formatCurrency(product.sale_price)}
+          <span>₹</span>
+          {formatCurrency(product.regular_price)}
         </del>
       </p>
     );
   } else {
     view = (
       <p className="ps-product__price">
-        <span>£</span>
-        {formatCurrency(product.price)}
+        <span>₹</span>
+        {formatCurrency(product.regular_price)}
       </p>
     );
   }
@@ -260,10 +260,6 @@ export function SPGetProductImageCart(product) {
       </div>
     );
   } else {
-    return (
-      <img
-        src="/static/img/undefined-product-thumbnail.jpg"
-      />
-    );
+    return <img src="/static/img/undefined-product-thumbnail.jpg" />;
   }
 }

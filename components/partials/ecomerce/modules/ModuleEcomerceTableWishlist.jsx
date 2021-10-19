@@ -47,7 +47,7 @@ const Wishlist = ({ wishlist }) => {
                     <td>
                         <ProductOnCart product={item} />
                     </td>
-                    <td>£{item.price}</td>
+                    <td>₹{item.price}</td>
                     <td>
                         {!item.out_of_stock ? (
                             <span className="ps-instock">In Stock</span>

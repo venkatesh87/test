@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 import Link from 'next/link';
 import _ from 'lodash';
 
-const SubModuleDetailSpecification = ({product}) => {
+const SubModuleDetailSpecification = ({storeState}) => {
+  const {product} = storeState;
+
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {

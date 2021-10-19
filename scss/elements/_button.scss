@@ -148,6 +148,19 @@
         font-size: 1.6rem;
     }
 
+    &--disabled {
+        background-color: #e5e5e5;
+        color: #000000;
+        font-size: 1.6rem;
+
+        &:hover, &:active {
+            background-color: #e5e5e5;
+        color: #000000;
+        font-size: 1.6rem;
+            }
+        }
+    
+
     &--black {
         background-color: $color-heading;
 

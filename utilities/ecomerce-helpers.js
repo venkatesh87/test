@@ -224,15 +224,8 @@ async function updateCartKeyStorage(newCartKey) {
   await storageHelper.storeData('jwt', JSON.stringify(data));
 }
 
-export async function addItemToCart(product) {
+export async function addItemToCart(cartItem) {
   const cartKey = await getCartKeyFromStorage();
-  const cartItem = {
-    cart_item_data: {},
-    product_id: product.id,
-    quantity: product.quantity,
-    variation: {},
-    variation_id: 0
-  };
   const addCartResponse = await CartRepository.addToCart(cartKey, cartItem);
   await updateCartKeyStorage(addCartResponse.cart_key);
   const response = await getCartItemsByCartKey();

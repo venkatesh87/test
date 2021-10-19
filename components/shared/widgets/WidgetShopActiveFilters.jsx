@@ -6,10 +6,10 @@ const WidgetShopActiveFilters = () => {
             <h3 className="widget-title">Active filters</h3>
             <div className="widget__content">
                 <a href="#">
-                    <i className="icon-cross"></i> Min £ 9.00
+                    <i className="icon-cross"></i> Min ₹ 9.00
                 </a>
                 <a href="#">
-                    <i className="icon-cross"></i> Max £ 9.00
+                    <i className="icon-cross"></i> Max ₹ 9.00
                 </a>
                 <a href="#">
                     <i className="icon-cross"></i> Remove all filter

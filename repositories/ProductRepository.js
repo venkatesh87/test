@@ -136,6 +136,36 @@ class ProductRepository {
       .catch((error) => ({error: JSON.stringify(error)}));
     return reponse;
   }
+
+  async getProductVariants(productId) {
+    try {
+      const response = await Repository.get(
+        `${baseUrl}/thehouseoffa/products/${productId}/variations`
+      );
+      if (response && response.data) {
+        return response.data;
+      }
+      return [];
+    } catch (error) {
+      console.log('error:', error);
+      return [];
+    }
+  }
+
+  async getProductAttributesMeta() {
+    try {
+      const response = await Repository.get(
+        `${baseUrl}/thehouseoffa/products/attributes`
+      );
+      if (response && response.data) {
+        return response.data;
+      }
+      return [];
+    } catch (error) {
+      console.log('error:', error);
+      return [];
+    }
+  }
 }
 
 export default new ProductRepository();

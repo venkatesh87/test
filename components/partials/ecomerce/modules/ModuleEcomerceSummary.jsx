@@ -37,7 +37,7 @@ const ModuleEcomerceSummary = ({cart}) => {
           <div className="flex-grow-1">
             <h4>{'Discounts'}</h4>
           </div>
-          <h5>{`-$${discounts.discountTotal}`}</h5>
+          <h5>{`-₹${discounts.discountTotal}`}</h5>
         </div>
         <div className="d-flex flex-column">
           {discounts.coupons.map((coupon) => (
@@ -72,7 +72,7 @@ const ModuleEcomerceSummary = ({cart}) => {
       <div className="ps-block__top">
         <div className="ps-block__shipping">{renderDiscountView}</div>
         <h4>
-          {'Subtotal'} <span>{`$${getCartSubTotal(cartItems)}`}</span>
+          {'Subtotal'} <span>{`₹${getCartSubTotal(cartItems)}`}</span>
         </h4>
         {/* <div className="ps-block__shipping">
           <h5>{'Shipping'}</h5>
@@ -124,7 +124,7 @@ const ModuleEcomerceSummary = ({cart}) => {
         <div className="ps-block__total">
           <h3>
             {'Total'}
-            <span>{`$${getCartSubTotal(cartItems)}`}</span>
+            <span>{`₹${getCartSubTotal(cartItems)}`}</span>
           </h3>
         </div>
       </div>

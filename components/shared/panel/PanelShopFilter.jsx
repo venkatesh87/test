@@ -83,16 +83,16 @@ const PanelShopFilter = () => {
                             <div className="widget__content">
                                 <ul className="ps-list--under">
                                     <li>
-                                        <a href="#">£0.00 - £10.00</a>
+                                        <a href="#">₹0.00 - ₹10.00</a>
                                     </li>
                                     <li>
-                                        <a href="#">£10.00 - £20.00</a>
+                                        <a href="#">₹10.00 - ₹20.00</a>
                                     </li>
                                     <li>
-                                        <a href="#">£20.00 - £30.00</a>
+                                        <a href="#">₹20.00 - ₹30.00</a>
                                     </li>
                                     <li>
-                                        <a href="#">£30.00 - £40.00</a>
+                                        <a href="#">₹30.00 - ₹40.00</a>
                                     </li>
                                 </ul>
                             </div>

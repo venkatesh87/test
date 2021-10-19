@@ -1,39 +1,42 @@
 import React from 'react';
+import _ from 'lodash';
 
-const ModuleDetailDescription = () => {
-    return (
-        <div className="row">
-            <div className="col-xl-7 col-lg-6 col-md-12 col-sm-12 col-12 ">
-                <div className="ps-document">
-                    <h4>Introduction</h4>
-                    <p>
-                        With ultralight, quality cotton canvas, the JanSport
-                        Houston backpack is ideal for a life-on-the-go. This
-                        backpack features premium faux leather bottom and trim
-                        details, padded 15 in laptop sleeve and tricot lined
-                        tablet sleeve
-                    </p>
-                    <h4>Features</h4>
-                    <ul>
-                        <li>Fully padded back panel, web hauded handle</li>
-                        <li>
-                            Internal padded sleeve fits 15″ laptop &amp; unique
-                            fabric application
-                        </li>
-                        <li>Internal tricot lined tablet sleeve</li>
-                        <li>One large main compartment and zippered</li>
-                        <li>Premium cotton canvas fabric</li>
-                    </ul>
-                </div>
-            </div>
-            <div className="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12 ">
-                <img
-                    src="/static/img/product/default/default-content.jpg"
-                    alt=""
-                />
-            </div>
+const ModuleDetailDescription = ({product}) => {
+  return (
+    <div className="row">
+      <div className="col-xl-7 col-lg-6 col-md-12 col-sm-12 col-12 ">
+        <div className="ps-document">
+          <h4>{'Introduction'}</h4>
+          <p>
+            {`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`}
+          </p>
+          <h4>{'Features'}</h4>
+          <ul>
+            <li>{'Lorem ipsum dolor sit amet'}</li>
+            <li>
+              {
+                'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
+              }
+            </li>
+            <li>{'Ut enim ad minim veniam'}</li>
+            <li>
+              {
+                'quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
+              }
+            </li>
+            <li>{'Lorem ipsum dolor sit amet'}</li>
+          </ul>
         </div>
-    );
+      </div>
+
+      <div className="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12 ">
+        {!_.isEmpty(product.images) && (
+          <img src={product.images[0].url} alt={product.name} />
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default ModuleDetailDescription;
